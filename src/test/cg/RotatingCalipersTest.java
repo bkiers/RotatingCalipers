@@ -15,33 +15,17 @@ public class RotatingCalipersTest {
     @Test
     public void getMinimumBoundingRectangleTest() {
 
-        /*
-                                I
-                      |         ^
-            6       | |         |
-            5  J <----+---c-----+---
-            4       | |         d
-            3       | b         |
-            2       | |         |
-            1       | a         |
-            0       '-|---------|--
-           -1         |         |
-           -2  -------|-------e-+--> L
-           -3        \/         |
-                      K
+        int[] xs = {-300, 200, 100, -400};
+        int[] ys = {-150, 200, -100, 0};
 
-              -2 -1 0 1 2 3 4 5 6
-        */
-        Point a = new Point(1, 1);
-        Point b = new Point(1, 3);
-        Point c = new Point(3, 5);
-        Point d = new Point(6, 4);
-        Point e = new Point(5, -2);
+        Point2D.Double[] minimum = RotatingCalipers.getMinimumBoundingRectangle(xs, ys);
 
-        List<Point> points = Arrays.asList(c, a, d, e, b);
+        int number = 1;
 
-        List<Point2D.Double[]> rectangle = RotatingCalipers.getAllBoundingRectangles(points);
+        for(Point2D.Double corner : minimum) {
+            System.out.printf("corner[%d] (%.1f, %.1f)%n", number++, corner.x, corner.y);
+        }
 
-        System.out.println(rectangle);
+        System.out.printf("%narea: %.1f", RotatingCalipers.getArea(minimum));
     }
 }

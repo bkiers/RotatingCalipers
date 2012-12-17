@@ -32,6 +32,20 @@ public final class RotatingCalipers {
 
     protected enum Corner { UPPER_RIGHT, UPPER_LEFT, LOWER_LEFT, LOWER_RIGHT }
 
+    public static double getArea(Point2D.Double[] rectangle) {
+
+        double deltaXAB = rectangle[0].x - rectangle[1].x;
+        double deltaYAB = rectangle[0].y - rectangle[1].y;
+
+        double deltaXBC = rectangle[1].x - rectangle[2].x;
+        double deltaYBC = rectangle[1].y - rectangle[2].y;
+
+        double lengthAB = Math.sqrt((deltaXAB * deltaXAB) + (deltaYAB * deltaYAB));
+        double lengthBC = Math.sqrt((deltaXBC * deltaXBC) + (deltaYBC * deltaYBC));
+
+        return lengthAB * lengthBC;
+    }
+
     public static List<Point2D.Double[]> getAllBoundingRectangles(int[] xs, int[] ys) throws IllegalArgumentException {
 
         if(xs.length != ys.length) {
@@ -78,13 +92,39 @@ public final class RotatingCalipers {
         return rectangles;
     }
 
+    public static Point2D.Double[] getMinimumBoundingRectangle(int[] xs, int[] ys) throws IllegalArgumentException {
+
+        if(xs.length != ys.length) {
+            throw new IllegalArgumentException("xs and ys don't have the same size");
+        }
+
+        List<Point> points = new ArrayList<Point>();
+
+        for(int i = 0; i < xs.length; i++) {
+            points.add(new Point(xs[i], ys[i]));
+        }
+
+        return getMinimumBoundingRectangle(points);
+    }
+
     public static Point2D.Double[] getMinimumBoundingRectangle(List<Point> points) throws IllegalArgumentException {
 
         List<Point2D.Double[]> rectangles = getAllBoundingRectangles(points);
 
+        Point2D.Double[] minimum = null;
+        double area = Long.MAX_VALUE;
 
+        for (Point2D.Double[] rectangle : rectangles) {
 
-        return null;
+            double tempArea = getArea(rectangle);
+
+            if (minimum == null || tempArea < area) {
+                minimum = rectangle;
+                area = tempArea;
+            }
+        }
+
+        return minimum;
     }
 
     private static double getSmallestTheta(Caliper I, Caliper J, Caliper K, Caliper L) {
