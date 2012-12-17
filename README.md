@@ -61,4 +61,4 @@ corner[4] (-320.0, -240.0)
 area: 160000.0
 ```
 
- [1] https://raw.github.com/bkiers/RotatingCalipers/master/img/rectangle.png
+ [1]: https://raw.github.com/bkiers/RotatingCalipers/master/img/rectangle.png
