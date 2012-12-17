@@ -33,7 +33,7 @@ getArea(Point2D.Double[] rectangle) : double
 
 ### Example
 
-IMAGE
+![-][1]
 
 ```java
 int[] xs = {-300, 200, 100, -400};
@@ -60,3 +60,5 @@ corner[4] (-320.0, -240.0)
 
 area: 160000.0
 ```
+
+ [1] https://raw.github.com/bkiers/RotatingCalipers/master/img/rectangle.png
