@@ -5,7 +5,7 @@ bounding rectangle of a set of points.
 
 A demo is deployed here: [computational-geometry.appspot.com/rotating-calipers](http://computational-geometry.appspot.com/rotating-calipers)
 
-### How to use it
+## How to use it
 
 The implementation is pretty straight forward: everything resides in a single class
 ([RotatingCalipers](https://github.com/bkiers/RotatingCalipers/blob/master/src/main/cg/RotatingCalipers.java)).
@@ -31,7 +31,7 @@ getMinimumBoundingRectangle(List<Point> points) : Point2D.Double[]
 getArea(Point2D.Double[] rectangle) : double
 ```
 
-### Example
+## Example
 
 ![-][1]
 
