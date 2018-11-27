@@ -1,0 +1,5 @@
+out/
+build/
+.idea/
+*.iml
+TEST*.txt

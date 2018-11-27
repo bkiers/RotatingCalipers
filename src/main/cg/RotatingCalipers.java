@@ -273,7 +273,7 @@ public final class RotatingCalipers {
                 pointIndex++;
             }
 
-            this.currentAngle += angle;
+            this.currentAngle = (this.currentAngle + angle) % 360;
         }
     }
 
