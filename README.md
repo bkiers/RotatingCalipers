@@ -3,8 +3,6 @@
 A Java implementation of the Rotating Calipers algorithm to find the minimum
 bounding rectangle of a set of points.
 
-A demo is deployed here: [bkiers-demos.appspot.com/rotating-calipers](http://bkiers-demos.appspot.com/rotating-calipers)
-
 ## How to use it
 
 The implementation is pretty straight forward: everything resides in a single class
